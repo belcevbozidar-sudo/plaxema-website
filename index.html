@@ -618,6 +618,52 @@
                 <!-- Content loaded dynamically via JS -->
             </div>
         </div>
+    <!-- TDS Request Modal -->
+    <div class="modal-overlay" id="tdsRequestModal" aria-hidden="true" role="dialog">
+        <div class="modal-card info-card">
+            <button class="modal-close" id="closeTdsModalBtn" aria-label="Close TDS modal">×</button>
+            <div class="tds-modal-content">
+                <h2>Request Technical Data Sheet (TDS)</h2>
+                <div class="tds-security-warning" style="background: rgba(255, 149, 39, 0.1); border-left: 4px solid var(--color-orange-accent); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 0.85rem; line-height: 1.4; color: var(--color-text-light);">
+                    ⚠️ <strong>Proprietary Data Shield:</strong> Plaxema formulations and technical datasheets are trade secrets protected by CEE geographical exclusivity covenants. Access is restricted to verified commercial partners.
+                </div>
+                <p style="margin-bottom: 20px;">Requesting TDS for: <strong id="tdsProductTitle" style="color: var(--color-blue-accent);">[Product Name]</strong></p>
+                <form id="tdsRequestForm" class="wizard-form" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                            <label for="tdsFullName" style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted);">Full Name *</label>
+                            <input type="text" id="tdsFullName" required placeholder="John Doe" style="background: var(--color-bg-dark); border: 1px solid var(--color-border-glass); border-radius: var(--radius-sm); padding: 10px; color: var(--color-text-white); font-family: inherit; font-size: 0.9rem;">
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                            <label for="tdsCorporateEmail" style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted);">Corporate Email *</label>
+                            <input type="email" id="tdsCorporateEmail" required placeholder="john.doe@company.com" style="background: var(--color-bg-dark); border: 1px solid var(--color-border-glass); border-radius: var(--radius-sm); padding: 10px; color: var(--color-text-white); font-family: inherit; font-size: 0.9rem;">
+                        </div>
+                    </div>
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                            <label for="tdsCompanyName" style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted);">Company Name *</label>
+                            <input type="text" id="tdsCompanyName" required placeholder="BuildCorp Sp. z o.o." style="background: var(--color-bg-dark); border: 1px solid var(--color-border-glass); border-radius: var(--radius-sm); padding: 10px; color: var(--color-text-white); font-family: inherit; font-size: 0.9rem;">
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+                            <label for="tdsTargetMarket" style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted);">CEE Target Market *</label>
+                            <select id="tdsTargetMarket" required style="background: var(--color-bg-dark); border: 1px solid var(--color-border-glass); border-radius: var(--radius-sm); padding: 10px; color: var(--color-text-white); font-family: inherit; font-size: 0.9rem;">
+                                <option value="" disabled selected>Select market...</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Hungary">Hungary</option>
+                                <option value="Other">Other EU / Global</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions" style="margin-top: 10px;">
+                        <button type="submit" class="wizard-submit-btn" style="width: 100%; padding: 12px; font-weight: 700; border-radius: var(--radius-sm); background: var(--color-blue-accent); color: var(--color-text-white); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: var(--shadow-soft);">
+                            Request Encrypted TDS 📩
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="index.js"></script>
