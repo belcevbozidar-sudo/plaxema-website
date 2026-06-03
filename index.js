@@ -4752,6 +4752,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const subCategorySelectors = document.getElementById("subCategorySelectors");
     const productsGrid = document.getElementById("productsGrid");
     const industriesGrid = document.getElementById("industriesGrid");
+    const subCategoryWrapper = document.getElementById("subCategoryWrapper");
+    const productsDisplayZone = document.getElementById("productsDisplayZone");
+    const landingPageView = document.getElementById("landingPageView");
+    const productPageView = document.getElementById("productPageView");
     
     const megaMenu = document.getElementById("megaMenu");
     const megaCatList = document.getElementById("megaCatList");
@@ -4787,7 +4791,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let sliderInterval;
     const slideDelay = 5000;
     
-    let activeCategory = "ADHESIVES";
+    let activeCategory = "";
     let activeSubCategory = "";
 
     /* ==========================================================================
@@ -4884,29 +4888,40 @@ document.addEventListener("DOMContentLoaded", () => {
        PRODUCT COMPASS LOGIC (MAPURA STYLE FILTERING)
        ========================================================================== */
     function renderProductCompass() {
+        if (!activeCategory) {
+            subCategoryWrapper.style.display = "none";
+            productsDisplayZone.style.display = "none";
+            return;
+        }
+        
+        subCategoryWrapper.style.display = "block";
         const categoryData = productDatabase[activeCategory];
         const subCategories = Object.keys(categoryData);
         
         // Render Sub-Category Buttons
         subCategorySelectors.innerHTML = "";
-        subCategories.forEach((subCat, idx) => {
+        subCategories.forEach((subCat) => {
             const btn = document.createElement("button");
             btn.classList.add("sub-btn");
             btn.textContent = subCat;
-            if (idx === 0) {
+            if (subCat === activeSubCategory) {
                 btn.classList.add("active");
-                activeSubCategory = subCat;
             }
             btn.addEventListener("click", () => {
                 subCategorySelectors.querySelectorAll(".sub-btn").forEach(b => b.classList.remove("active"));
                 btn.classList.add("active");
                 activeSubCategory = subCat;
-                renderProductItems();
+                renderProductCompass();
             });
             subCategorySelectors.appendChild(btn);
         });
 
-        renderProductItems();
+        if (!activeSubCategory) {
+            productsDisplayZone.style.display = "none";
+        } else {
+            productsDisplayZone.style.display = "block";
+            renderProductItems();
+        }
     }
 
     function renderProductItems() {
@@ -4938,7 +4953,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Detail Trigger
             card.addEventListener("click", () => {
-                openProductDetails(item);
+                window.location.hash = `#/product/${getProductSlug(item.name)}`;
             });
 
             productsGrid.appendChild(card);
@@ -4955,6 +4970,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
             btn.setAttribute("aria-selected", "true");
             activeCategory = btn.dataset.category;
+            activeSubCategory = ""; // reset subcategory on category change
             renderProductCompass();
         });
     });
@@ -5107,7 +5123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             
             tr.addEventListener("click", () => {
-                openProductDetails(p);
+                window.location.hash = `#/product/${getProductSlug(p.name)}`;
             });
             
             indexTableBody.appendChild(tr);
@@ -5294,64 +5310,163 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // --- PRODUCT DETAIL MODAL GENERATION ---
-    function openProductDetails(item) {
-        // Find category and subcategory from item if not set (for Search table row clicks)
-        let cat = item.category || activeCategory;
-        let sub = item.subcategory || activeSubCategory;
-        
-        productDetailLayout.innerHTML = `
-            <!-- Left image/meta pane -->
-            <div class="detail-visual-pane">
-                <div class="detail-graphic">🧪</div>
-                <div class="detail-specs-list">
-                    <div class="detail-spec-row">
-                        <span class="detail-spec-label">Category</span>
-                        <span class="detail-spec-val">${cat}</span>
-                    </div>
-                    <div class="detail-spec-row">
-                        <span class="detail-spec-label">Sub-category</span>
-                        <span class="detail-spec-val">${sub}</span>
-                    </div>
-                    <div class="detail-spec-row">
-                        <span class="detail-spec-label">CEE Status</span>
-                        <span class="detail-spec-val" style="color: var(--color-green-accent);">100% Compliant</span>
+    /* ==========================================================================
+       PRODUCT DEDICATED PAGE & HASH ROUTER
+       ========================================================================== */
+    function getProductSlug(name) {
+        return name.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)+/g, '');
+    }
+
+    function showProductPage(item) {
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        // Hide landing page, show product details page
+        landingPageView.classList.add("hidden");
+        productPageView.classList.remove("hidden");
+
+        let cat = item.category || activeCategory || "ADHESIVES";
+        let sub = item.subcategory || activeSubCategory || "Water-based Adhesives";
+
+        productPageView.innerHTML = `
+            <div class="product-page-container">
+                <!-- Breadcrumbs and Navigation -->
+                <div class="product-page-nav">
+                    <button class="back-to-catalog-btn" id="backToCatalogBtn">
+                        ← Back to Catalog
+                    </button>
+                    <div class="breadcrumbs">
+                        <a href="#">Home</a> / 
+                        <a href="#productCompass" id="breadcrumbCatLink">${cat}</a> / 
+                        <a href="#productCompass" id="breadcrumbSubLink">${sub}</a> / 
+                        <span>${item.name}</span>
                     </div>
                 </div>
-            </div>
-            <!-- Right info pane -->
-            <div class="detail-content-pane">
-                <span class="detail-cat-path">Toll Blending Specifications</span>
-                <h2>${item.name}</h2>
-                <p class="detail-desc">${item.desc}</p>
-                
-                <h4 class="detail-features-header">Technical Specifications Matrix</h4>
-                <ul class="detail-features-list">
-                    <li>${item.spec}</li>
-                    <li>Packaging standard: ${item.pack}</li>
-                    <li>Geographical Exclusivity granted in CEE</li>
-                    <li>SDS authored in local languages</li>
-                </ul>
 
-                <div class="detail-actions">
-                    <button class="detail-quote-btn" id="modalQuoteTrigger">Configure Custom Batch ⚡</button>
+                <div class="product-page-layout">
+                    <!-- Left Technical Specifications Card -->
+                    <div class="product-page-left">
+                        <div class="product-page-graphic">🧪</div>
+                        
+                        <div class="specs-block">
+                            <h3>Formulation Metrics</h3>
+                            <div class="specs-details">
+                                <div class="spec-detail-row">
+                                    <span class="spec-label">Exclusivity Status</span>
+                                    <span class="spec-value text-green">100% CEE Protected</span>
+                                </div>
+                                <div class="spec-detail-row">
+                                    <span class="spec-label">Regulatory Shield</span>
+                                    <span class="spec-value text-blue">EU Safety Verified</span>
+                                </div>
+                                <div class="spec-detail-row">
+                                    <span class="spec-label">Safety Datasheet</span>
+                                    <span class="spec-value">REACH SDS Available</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="packaging-block">
+                            <h3>Standard Packaging</h3>
+                            <p>${item.pack || '310ml Cartridge, 600ml Sausage, or Bulk'}</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Description and RFQ Panel -->
+                    <div class="product-page-right">
+                        <span class="product-tag-cat">${cat} / ${sub}</span>
+                        <h1 class="product-page-title">${item.name}</h1>
+                        <p class="product-page-desc">${item.desc}</p>
+
+                        <div class="product-features-panel">
+                            <h2>Technical Formulation Details</h2>
+                            <ul>
+                                <li><strong>Base Compound Profile:</strong> ${item.spec}</li>
+                                <li>Custom formula adjustments available at our Krakow R&D laboratory.</li>
+                                <li>Guaranteed geographical exclusivity to avoid local market cannibalization.</li>
+                                <li>REACH compliant and poison center notified formulation.</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-page-actions">
+                            <button class="product-page-rfq-btn" id="productPageRfqBtn">
+                                Request a Quote for this Formulation ⚡
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
-        
-        // Modal nested trigger binding
-        document.getElementById("modalQuoteTrigger").addEventListener("click", () => {
-            closeModal(productModal);
-            
-            // Set the configuration selects in form
+
+        // Bind Breadcrumb links to pre-select items in catalog
+        const goToCompassLocation = () => {
+            activeCategory = cat;
+            activeSubCategory = sub;
+
+            // Sync Category selectors in Compass
+            categorySelectors.querySelectorAll(".cat-btn").forEach(b => {
+                if (b.dataset.category === activeCategory) {
+                    b.classList.add("active");
+                    b.setAttribute("aria-selected", "true");
+                } else {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-selected", "false");
+                }
+            });
+
+            renderProductCompass();
+
+            // Select subcategory button in Compass
+            setTimeout(() => {
+                subCategorySelectors.querySelectorAll(".sub-btn").forEach(b => {
+                    if (b.textContent === activeSubCategory) {
+                        b.click();
+                    }
+                });
+            }, 50);
+        };
+
+        document.getElementById("breadcrumbCatLink").addEventListener("click", goToCompassLocation);
+        document.getElementById("breadcrumbSubLink").addEventListener("click", goToCompassLocation);
+
+        document.getElementById("backToCatalogBtn").addEventListener("click", () => {
+            window.location.hash = "";
+            setTimeout(() => {
+                const compassSection = document.getElementById("productCompass");
+                if (compassSection) {
+                    compassSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 50);
+        });
+
+        document.getElementById("productPageRfqBtn").addEventListener("click", () => {
             configCategory.value = cat;
             configCategory.dispatchEvent(new Event("change"));
             configSubCategory.value = sub;
-            
+
             openModal(quoteModal);
             goToWizardStep(2);
         });
-
-        openModal(productModal);
     }
+
+    function handleRouting() {
+        const hash = window.location.hash;
+        if (hash.startsWith("#/product/")) {
+            const slug = hash.replace("#/product/", "");
+            const product = flatProducts.find(p => getProductSlug(p.name) === slug);
+            if (product) {
+                showProductPage(product);
+            } else {
+                window.location.hash = "";
+            }
+        } else {
+            landingPageView.classList.remove("hidden");
+            productPageView.classList.add("hidden");
+        }
+    }
+
+    window.addEventListener("hashchange", handleRouting);
+    window.addEventListener("load", handleRouting);
 });

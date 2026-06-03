@@ -85,7 +85,7 @@
 
     <!-- Main Content Area -->
     <main id="mainContent">
-
+        <div id="landingPageView">
         <!-- Hero Section (Daymon Style Swiper Slider) -->
         <section id="heroSlider" class="hero-slider" aria-label="Hero Slider">
             <div class="slider-wrapper" id="sliderWrapper">
@@ -205,7 +205,7 @@
 
                 <!-- Level 1: Category Selection Buttons -->
                 <div class="category-selectors" id="categorySelectors" role="tablist" aria-label="Product Categories">
-                    <button class="cat-btn active" data-category="ADHESIVES" role="tab" aria-selected="true" id="tab-adhesives">
+                    <button class="cat-btn" data-category="ADHESIVES" role="tab" aria-selected="false" id="tab-adhesives">
                         <span class="cat-icon">🧪</span> Adhesives
                     </button>
                     <button class="cat-btn" data-category="SEALANTS" role="tab" aria-selected="false" id="tab-sealants">
@@ -229,7 +229,7 @@
                 </div>
 
                 <!-- Level 2: Dynamic Sub-Category Tab Bar -->
-                <div class="sub-category-wrapper">
+                <div class="sub-category-wrapper" id="subCategoryWrapper" style="display: none;">
                     <span class="section-tag-sm">Selection 2: Sub-category type</span>
                     <div class="sub-category-selectors" id="subCategorySelectors" role="tablist" aria-label="Product Sub-categories">
                         <!-- Populated by JavaScript -->
@@ -237,7 +237,7 @@
                 </div>
 
                 <!-- Level 3: Dynamic Item Grid (Produkcja Kontraktowa Style) -->
-                <div class="products-display-zone">
+                <div class="products-display-zone" id="productsDisplayZone" style="display: none;">
                     <span class="section-tag-sm">Selection 3: Product formulations & specifications</span>
                     <div class="products-grid" id="productsGrid">
                         <!-- Populated by JavaScript -->
@@ -352,7 +352,10 @@
                 </div>
             </div>
         </section>
+        </div><!-- End landingPageView -->
 
+        <!-- Dedicated Full-Page Product Details View -->
+        <div id="productPageView" class="hidden"></div>
     </main>
 
     <!-- Master Footer Matrix -->
