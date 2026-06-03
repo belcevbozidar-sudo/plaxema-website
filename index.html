@@ -40,7 +40,7 @@
                     <li><a href="#producersSection" class="nav-link">For Producers</a></li>
                     <li><a href="#methodologySection" class="nav-link">How We Work</a></li>
                     <li class="nav-item-dropdown">
-                        <a href="#productCompass" class="nav-link" id="ourOfferDropdownBtn">Our Offer <span class="caret">▼</span></a>
+                        <a href="#/our-offer" class="nav-link" id="ourOfferDropdownBtn">Our Offer <span class="caret">▼</span></a>
                         <!-- Interactive 3-Step Falling Menu Mega Menu -->
                         <div class="mega-menu" id="megaMenu">
                             <div class="mega-menu-inner">
@@ -95,11 +95,21 @@
                         <div class="slide-inner">
                             <h1 class="slide-headline">Private Label Chemical Innovation</h1>
                             <p class="slide-description">We build premium, custom-formulated adhesives, sealants, PU foams, and aerosols that establish market dominance for global brands.</p>
-                            <a href="#productCompass" class="slide-cta-btn">Explore Offer</a>
+                            <a href="#/our-offer" class="slide-cta-btn">Explore Offer</a>
                         </div>
                     </div>
                 </div>
-                <!-- Slide 2: Regional Protection Exclusivity -->
+                <!-- Slide 2: Dedicated Catalogue Explorer -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 47, 101, 0.4), rgba(0, 47, 101, 0.65)), url('assets/hero_slide_catalogue.png');">
+                    <div class="slide-content border-orange">
+                        <div class="slide-inner">
+                            <h2 class="slide-headline">CEE Formulation Compass</h2>
+                            <p class="slide-description">Search and explore our full technical database of 300+ adhesives, sealants, PU foams, aerosols, and application systems.</p>
+                            <a href="#/our-offer" class="slide-cta-btn">View Product Catalogue</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3: Regional Protection Exclusivity -->
                 <div class="slide" style="background-image: linear-gradient(rgba(0, 47, 101, 0.4), rgba(0, 47, 101, 0.65)), url('assets/hero_slide_logistics.png');">
                     <div class="slide-content border-orange">
                         <div class="slide-inner">
@@ -153,7 +163,7 @@
                     </div>
                     <div class="panel-content">
                         <p class="panel-description">Rapidly expand your product lines with custom-formulated solutions. We provide tailored chemical properties, custom branding design, and CEE regional positioning to establish your product as a top market contender.</p>
-                        <a href="#productCompass" class="panel-cta">
+                        <a href="#/our-offer" class="panel-cta">
                             Line Extensions
                             <span class="arrow-icon">→</span>
                         </a>
@@ -189,58 +199,6 @@
                             Contract Manufacturing
                             <span class="arrow-icon">→</span>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Compass (Mapura Style Dynamic Explorer) -->
-        <section id="productCompass" class="product-compass">
-            <div class="compass-container">
-                <div class="section-title-block">
-                    <span class="section-tag">Selection 1: Product Categories</span>
-                    <h2 class="section-heading">PLAXEMA Product Compass</h2>
-                    <p class="section-subtext">Filter and explore our comprehensive private label formulation matrix. Real-time specifications for your CEE target market.</p>
-                </div>
-
-                <!-- Level 1: Category Selection Buttons -->
-                <div class="category-selectors" id="categorySelectors" role="tablist" aria-label="Product Categories">
-                    <button class="cat-btn" data-category="ADHESIVES" role="tab" aria-selected="false" id="tab-adhesives">
-                        <span class="cat-icon">🧪</span> Adhesives
-                    </button>
-                    <button class="cat-btn" data-category="SEALANTS" role="tab" aria-selected="false" id="tab-sealants">
-                        <span class="cat-icon">🛡️</span> Sealants
-                    </button>
-                    <button class="cat-btn" data-category="PU FOAMS" role="tab" aria-selected="false" id="tab-pu-foams">
-                        <span class="cat-icon">🧼</span> PU Foams
-                    </button>
-                    <button class="cat-btn" data-category="AEROSOLS" role="tab" aria-selected="false" id="tab-aerosols">
-                        <span class="cat-icon">💨</span> Aerosols
-                    </button>
-                    <button class="cat-btn" data-category="AUTOMOTIVE" role="tab" aria-selected="false" id="tab-automotive">
-                        <span class="cat-icon">🚗</span> Automotive
-                    </button>
-                    <button class="cat-btn" data-category="CLEANING" role="tab" aria-selected="false" id="tab-cleaning">
-                        <span class="cat-icon">✨</span> Cleaning
-                    </button>
-                    <button class="cat-btn" data-category="APPLICATION SYSTEMS" role="tab" aria-selected="false" id="tab-app-systems">
-                        <span class="cat-icon">🔫</span> Applicators
-                    </button>
-                </div>
-
-                <!-- Level 2: Dynamic Sub-Category Tab Bar -->
-                <div class="sub-category-wrapper" id="subCategoryWrapper" style="display: none;">
-                    <span class="section-tag-sm">Selection 2: Sub-category type</span>
-                    <div class="sub-category-selectors" id="subCategorySelectors" role="tablist" aria-label="Product Sub-categories">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Level 3: Dynamic Item Grid (Produkcja Kontraktowa Style) -->
-                <div class="products-display-zone" id="productsDisplayZone" style="display: none;">
-                    <span class="section-tag-sm">Selection 3: Product formulations & specifications</span>
-                    <div class="products-grid" id="productsGrid">
-                        <!-- Populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -353,6 +311,60 @@
             </div>
         </section>
         </div><!-- End landingPageView -->
+
+        <!-- Dedicated Full-Page Product Catalogue (Product Compass) -->
+        <div id="ourOfferPageView" class="hidden">
+            <section id="productCompass" class="product-compass">
+                <div class="compass-container">
+                    <div class="section-title-block">
+                        <span class="section-tag">Selection 1: Product Categories</span>
+                        <h2 class="section-heading">PLAXEMA Product Compass</h2>
+                        <p class="section-subtext">Filter and explore our comprehensive private label formulation matrix. Real-time specifications for your CEE target market.</p>
+                    </div>
+
+                    <!-- Level 1: Category Selection Buttons -->
+                    <div class="category-selectors" id="categorySelectors" role="tablist" aria-label="Product Categories">
+                        <button class="cat-btn" data-category="ADHESIVES" role="tab" aria-selected="false" id="tab-adhesives">
+                            <span class="cat-icon">🧪</span> Adhesives
+                        </button>
+                        <button class="cat-btn" data-category="SEALANTS" role="tab" aria-selected="false" id="tab-sealants">
+                            <span class="cat-icon">🛡️</span> Sealants
+                        </button>
+                        <button class="cat-btn" data-category="PU FOAMS" role="tab" aria-selected="false" id="tab-pu-foams">
+                            <span class="cat-icon">🧼</span> PU Foams
+                        </button>
+                        <button class="cat-btn" data-category="AEROSOLS" role="tab" aria-selected="false" id="tab-aerosols">
+                            <span class="cat-icon">💨</span> Aerosols
+                        </button>
+                        <button class="cat-btn" data-category="AUTOMOTIVE" role="tab" aria-selected="false" id="tab-automotive">
+                            <span class="cat-icon">🚗</span> Automotive
+                        </button>
+                        <button class="cat-btn" data-category="CLEANING" role="tab" aria-selected="false" id="tab-cleaning">
+                            <span class="cat-icon">✨</span> Cleaning
+                        </button>
+                        <button class="cat-btn" data-category="APPLICATION SYSTEMS" role="tab" aria-selected="false" id="tab-app-systems">
+                            <span class="cat-icon">🔫</span> Applicators
+                        </button>
+                    </div>
+
+                    <!-- Level 2: Dynamic Sub-Category Tab Bar -->
+                    <div class="sub-category-wrapper" id="subCategoryWrapper" style="display: none;">
+                        <span class="section-tag-sm">Selection 2: Sub-category type</span>
+                        <div class="sub-category-selectors" id="subCategorySelectors" role="tablist" aria-label="Product Sub-categories">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Level 3: Dynamic Item Grid (Produkcja Kontraktowa Style) -->
+                    <div class="products-display-zone" id="productsDisplayZone" style="display: none;">
+                        <span class="section-tag-sm">Selection 3: Product formulations & specifications</span>
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- Dedicated Full-Page Product Details View -->
         <div id="productPageView" class="hidden"></div>

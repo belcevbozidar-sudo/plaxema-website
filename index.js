@@ -4755,6 +4755,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const subCategoryWrapper = document.getElementById("subCategoryWrapper");
     const productsDisplayZone = document.getElementById("productsDisplayZone");
     const landingPageView = document.getElementById("landingPageView");
+    const ourOfferPageView = document.getElementById("ourOfferPageView");
     const productPageView = document.getElementById("productPageView");
     
     const megaMenu = document.getElementById("megaMenu");
@@ -5041,7 +5042,7 @@ document.addEventListener("DOMContentLoaded", () => {
         items.forEach(item => {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = "#productCompass";
+            a.href = "#/our-offer";
             a.textContent = item.name;
             
             a.addEventListener("click", () => {
@@ -5069,6 +5070,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }, 50);
                 
+                // Update URL hash to transition to our offer page
+                window.location.hash = "#/our-offer";
+
                 // Close Mega Menu
                 megaMenu.style.opacity = "0";
                 megaMenu.style.visibility = "hidden";
@@ -5426,19 +5430,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             }, 50);
+
+            // Change hash to show catalog page!
+            window.location.hash = "#/our-offer";
         };
 
         document.getElementById("breadcrumbCatLink").addEventListener("click", goToCompassLocation);
         document.getElementById("breadcrumbSubLink").addEventListener("click", goToCompassLocation);
 
         document.getElementById("backToCatalogBtn").addEventListener("click", () => {
-            window.location.hash = "";
-            setTimeout(() => {
-                const compassSection = document.getElementById("productCompass");
-                if (compassSection) {
-                    compassSection.scrollIntoView({ behavior: "smooth" });
-                }
-            }, 50);
+            window.location.hash = "#/our-offer";
         });
 
         document.getElementById("productPageRfqBtn").addEventListener("click", () => {
@@ -5457,12 +5458,25 @@ document.addEventListener("DOMContentLoaded", () => {
             const slug = hash.replace("#/product/", "");
             const product = flatProducts.find(p => getProductSlug(p.name) === slug);
             if (product) {
+                // Hide other views, show product view
+                landingPageView.classList.add("hidden");
+                ourOfferPageView.classList.add("hidden");
+                productPageView.classList.remove("hidden");
                 showProductPage(product);
             } else {
                 window.location.hash = "";
             }
+        } else if (hash === "#/our-offer") {
+            // Hide other views, show our offer catalog view
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            landingPageView.classList.add("hidden");
+            ourOfferPageView.classList.remove("hidden");
+            productPageView.classList.add("hidden");
+            renderProductCompass();
         } else {
+            // Show homepage landing view, hide details/catalogue views
             landingPageView.classList.remove("hidden");
+            ourOfferPageView.classList.add("hidden");
             productPageView.classList.add("hidden");
         }
     }
