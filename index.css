@@ -431,6 +431,25 @@ button {
     .accordion-panel:hover, .accordion-panel.active {
         flex: 2.5;
     }
+    .accordion-panel:hover .panel-background {
+        filter: brightness(0.3) grayscale(0);
+        transform: scale(1.05);
+    }
+    .accordion-panel:hover .panel-content {
+        max-height: 250px;
+        opacity: 1;
+    }
+}
+
+/* Active state for accordion panels (handles mobile clicks and desktop active states) */
+.accordion-panel.active .panel-background {
+    filter: brightness(0.3) grayscale(0);
+    transform: scale(1.05);
+}
+
+.accordion-panel.active .panel-content {
+    max-height: 250px;
+    opacity: 1;
 }
 
 .panel-background {
@@ -445,11 +464,6 @@ button {
     filter: brightness(0.2) grayscale(0.5);
     transition: filter var(--transition-normal), transform var(--transition-slow);
     z-index: 1;
-}
-
-.accordion-panel:hover .panel-background, .accordion-panel.active .panel-background {
-    filter: brightness(0.3) grayscale(0);
-    transform: scale(1.05);
 }
 
 .panel-header {
@@ -479,11 +493,6 @@ button {
     opacity: 0;
     overflow: hidden;
     transition: max-height var(--transition-slow), opacity var(--transition-slow);
-}
-
-.accordion-panel:hover .panel-content, .accordion-panel.active .panel-content {
-    max-height: 250px;
-    opacity: 1;
 }
 
 .panel-description {
@@ -1512,13 +1521,15 @@ button {
     }
     
     .quote-btn {
-        padding: 8px 14px;
-        font-size: 0.8rem;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
     }
     
     .contact-trigger {
-        padding: 8px 14px;
-        font-size: 0.8rem;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
     }
     
     .hero-slider {
@@ -1848,6 +1859,108 @@ button {
 
 .show-more-btn:active {
     transform: translateY(0);
+}
+
+/* Mobile enhancements for search layout and technical index table */
+@media (max-width: 768px) {
+    .search-box-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    #indexSearchInput {
+        padding: 14px 20px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .search-count {
+        position: static !important;
+        transform: none !important;
+        text-align: center;
+        margin-top: 4px;
+        display: block;
+        font-size: 0.8rem;
+    }
+    
+    .index-table-wrapper {
+        border: none !important;
+        background: transparent !important;
+        overflow-x: visible !important;
+    }
+    
+    .index-table, 
+    .index-table thead, 
+    .index-table tbody, 
+    .index-table th, 
+    .index-table td, 
+    .index-table tr {
+        display: block !important;
+    }
+    
+    .index-table thead {
+        display: none !important;
+    }
+    
+    .index-table tr {
+        border: 1px solid var(--color-border-glass) !important;
+        background: var(--color-bg-panel) !important;
+        border-radius: var(--radius-md) !important;
+        padding: 16px !important;
+        margin-bottom: 16px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .index-table td {
+        border: none !important;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.05) !important;
+        padding: 10px 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        font-size: 0.88rem !important;
+    }
+    
+    .index-table td:last-child {
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-top: 8px;
+    }
+    
+    .index-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--color-blue-accent);
+    }
+    
+    .index-table td:first-child {
+        font-size: 1.05rem !important;
+        display: block !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .index-table td:first-child::before {
+        display: none !important;
+    }
+    
+    .index-action-btn {
+        width: 100%;
+        justify-content: center;
+        background: rgba(0, 196, 141, 0.1);
+        border: 1px solid rgba(0, 196, 141, 0.2);
+        padding: 8px 16px;
+        border-radius: var(--radius-sm);
+        transition: var(--transition-fast);
+    }
+    
+    .index-action-btn:hover {
+        background: rgba(0, 167, 231, 0.15);
+        border-color: var(--color-blue-accent);
+    }
 }
 
 

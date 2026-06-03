@@ -5099,11 +5099,11 @@ document.addEventListener("DOMContentLoaded", () => {
         chunk.forEach(p => {
             const tr = document.createElement("tr");
             tr.innerHTML = `
-                <td><strong>${p.name}</strong></td>
-                <td>${p.category}</td>
-                <td>${p.subcategory}</td>
-                <td style="color: var(--color-green-accent); font-weight: 600;">CEE Protected</td>
-                <td><button class="index-action-btn">Configure ⚡</button></td>
+                <td data-label="Product Name"><strong>${p.name}</strong></td>
+                <td data-label="Category">${p.category}</td>
+                <td data-label="Sub-Category">${p.subcategory}</td>
+                <td data-label="Exclusivity" style="color: var(--color-green-accent); font-weight: 600;">CEE Protected</td>
+                <td data-label="Action"><button class="index-action-btn">Configure ⚡</button></td>
             `;
             
             tr.addEventListener("click", () => {
