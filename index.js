@@ -4761,6 +4761,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const indexSearchInput = document.getElementById("indexSearchInput");
     const indexTableBody = document.getElementById("indexTableBody");
     const searchCount = document.getElementById("searchCount");
+    const indexPaginationContainer = document.getElementById("indexPaginationContainer");
+    const indexShowMoreBtn = document.getElementById("indexShowMoreBtn");
 
     // Modals
     const quoteModal = document.getElementById("quoteModal");
@@ -5071,8 +5073,12 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ==========================================================================
        SEARCHABLE TECHNICAL INDEX (LEVEL 3 INDEX)
        ========================================================================== */
-    function renderTechnicalIndex(searchQuery = "") {
-        indexTableBody.innerHTML = "";
+    let indexVisibleLimit = 25;
+
+    function renderTechnicalIndex(searchQuery = "", isAppend = false) {
+        if (!isAppend) {
+            indexTableBody.innerHTML = "";
+        }
         let filtered = flatProducts;
         
         if (searchQuery.trim()) {
@@ -5085,9 +5091,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
         
-        searchCount.textContent = `Showing ${filtered.length} of ${flatProducts.length} formulations`;
+        searchCount.textContent = `Showing ${Math.min(indexVisibleLimit, filtered.length)} of ${filtered.length} formulations`;
         
-        filtered.forEach(p => {
+        const startIndex = isAppend ? indexTableBody.children.length : 0;
+        const chunk = filtered.slice(startIndex, indexVisibleLimit);
+        
+        chunk.forEach(p => {
             const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td><strong>${p.name}</strong></td>
@@ -5103,11 +5112,27 @@ document.addEventListener("DOMContentLoaded", () => {
             
             indexTableBody.appendChild(tr);
         });
+
+        // Show/hide pagination button
+        if (filtered.length > indexVisibleLimit) {
+            indexPaginationContainer.style.display = "flex";
+            indexShowMoreBtn.textContent = `Show More (+${Math.min(50, filtered.length - indexVisibleLimit)})`;
+        } else {
+            indexPaginationContainer.style.display = "none";
+        }
     }
 
     indexSearchInput.addEventListener("input", (e) => {
+        indexVisibleLimit = 25;
         renderTechnicalIndex(e.target.value);
     });
+
+    if (indexShowMoreBtn) {
+        indexShowMoreBtn.addEventListener("click", () => {
+            indexVisibleLimit += 50;
+            renderTechnicalIndex(indexSearchInput.value, true);
+        });
+    }
 
     renderTechnicalIndex();
 

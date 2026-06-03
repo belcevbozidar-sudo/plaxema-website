@@ -1819,3 +1819,35 @@ button {
     left: 0;
 }
 
+/* Pagination for Searchable Technical Index */
+.index-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.show-more-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border-glass);
+    color: var(--color-text-white);
+    padding: 14px 36px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.show-more-btn:hover {
+    border-color: var(--color-blue-accent);
+    background: rgba(0, 167, 231, 0.05);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+.show-more-btn:active {
+    transform: translateY(0);
+}
+
+
