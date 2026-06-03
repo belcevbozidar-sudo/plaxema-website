@@ -1,0 +1,12 @@
+{
+  "name": "plaxema-website",
+  "version": "1.0.0",
+  "description": "Premium Private Label Website for PLAXEMA",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

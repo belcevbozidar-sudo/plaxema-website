@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAXEMA — Private Label Chemical Innovation Destination</title>
+    <meta name="description" content="CEE's leading private label manufacturer of Adhesives, Sealants, PU Foams, Aerosols, and Automotive chemical products. Premium quality, strict geographical protection, and full chemical regulatory compliance.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="siteHeader" class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo-link" id="logoLink">
+                <svg class="logo-svg" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 10L32 20L12 30L8 20L12 10Z" fill="url(#logoGrad)" />
+                    <circle cx="12" cy="10" r="3" fill="#00A7E7" />
+                    <circle cx="32" cy="20" r="3" fill="#00C48D" />
+                    <circle cx="12" cy="30" r="3" fill="#FF9527" />
+                    <text x="48" y="32" font-family="'Poppins', sans-serif" font-weight="700" font-size="24" fill="#FFFFFF" letter-spacing="1">PLAXEMA</text>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="8" y1="10" x2="32" y2="30" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#00A7E7" />
+                            <stop offset="50%" stop-color="#00C48D" />
+                            <stop offset="100%" stop-color="#FF9527" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+
+            <nav class="main-nav" id="mainNavigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="#brandsSection" class="nav-link">For Brands</a></li>
+                    <li><a href="#retailersSection" class="nav-link">For Retailers</a></li>
+                    <li><a href="#producersSection" class="nav-link">For Producers</a></li>
+                    <li><a href="#methodologySection" class="nav-link">How We Work</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="#productCompass" class="nav-link" id="ourOfferDropdownBtn">Our Offer <span class="caret">▼</span></a>
+                        <!-- Interactive 3-Step Falling Menu Mega Menu -->
+                        <div class="mega-menu" id="megaMenu">
+                            <div class="mega-menu-inner">
+                                <div class="mega-menu-cols">
+                                    <div class="mega-menu-col">
+                                        <h4>1. Category</h4>
+                                        <ul class="mega-list" id="megaCatList">
+                                            <!-- Dynamically Populated -->
+                                        </ul>
+                                    </div>
+                                    <div class="mega-menu-col">
+                                        <h4>2. Sub-Category</h4>
+                                        <ul class="mega-list" id="megaSubCatList">
+                                            <!-- Dynamically Populated -->
+                                        </ul>
+                                    </div>
+                                    <div class="mega-menu-col">
+                                        <h4>3. Item Group</h4>
+                                        <ul class="mega-list" id="megaItemList">
+                                            <!-- Dynamically Populated -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="quote-btn" id="openQuoteBtn">
+                    REQUEST A QUOTE
+                    <span class="pulse-icon">⚡</span>
+                </button>
+                <button class="contact-trigger" id="contactMatrixBtn" aria-label="Open contact channels">
+                    Contact Us
+                    <span class="contact-indicator"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="mainContent">
+
+        <!-- Hero Section (Daymon Style Swiper Slider) -->
+        <section id="heroSlider" class="hero-slider" aria-label="Hero Slider">
+            <div class="slider-wrapper" id="sliderWrapper">
+                <!-- Slide 1: General Core offering -->
+                <div class="slide active" style="background-image: linear-gradient(rgba(0, 47, 101, 0.4), rgba(0, 47, 101, 0.65)), url('assets/hero_slide_manufacturing.png');">
+                    <div class="slide-content border-blue">
+                        <div class="slide-inner">
+                            <h1 class="slide-headline">Private Label Chemical Innovation</h1>
+                            <p class="slide-description">We build premium, custom-formulated adhesives, sealants, PU foams, and aerosols that establish market dominance for global brands.</p>
+                            <a href="#productCompass" class="slide-cta-btn">Explore Offer</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Regional Protection Exclusivity -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 47, 101, 0.4), rgba(0, 47, 101, 0.65)), url('assets/hero_slide_logistics.png');">
+                    <div class="slide-content border-orange">
+                        <div class="slide-inner">
+                            <h2 class="slide-headline">Zero Market Cannibalization</h2>
+                            <p class="slide-description">Strict geographical exclusivity protects your brand's market share across Poland, the Czech Republic, Slovakia, and Hungary.</p>
+                            <a href="#assuranceSection" class="slide-cta-btn">Exclusivity Pledge</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3: Chemical compliance and safety -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 47, 101, 0.4), rgba(0, 47, 101, 0.65)), url('assets/hero_slide_compliance.png');">
+                    <div class="slide-content border-green">
+                        <div class="slide-inner">
+                            <h2 class="slide-headline">100% EU Regulatory Shield</h2>
+                            <p class="slide-description">We handle Safety Data Sheets (SDS), EU notifications, and chemical validations in local languages so you don't have to.</p>
+                            <a href="#methodologySection" class="slide-cta-btn">Learn Regulatory</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Navigation controls -->
+            <div class="slider-controls">
+                <div class="slider-pagination" id="sliderPagination"></div>
+                <button type="button" class="slider-play-btn" id="sliderPlayPauseBtn" aria-label="Pause Slideshow">
+                    <!-- Pause Icon (Default) -->
+                    <svg class="pause-icon" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="2" width="3" height="12" rx="1"/>
+                        <rect x="10" y="2" width="3" height="12" rx="1"/>
+                    </svg>
+                    <!-- Play Icon -->
+                    <svg class="play-icon hidden" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 2v12l10-6L4 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Dynamic Audience Paths (Daymon Style Accordion) -->
+        <section id="audienceSection" class="audience-section" aria-label="Audience Solutions">
+            <div class="section-header">
+                <h2 class="section-title">We create actionable solutions that are right for you.</h2>
+            </div>
+            
+            <div class="accordion-container" id="accordion">
+                <!-- Panel 1: Brands -->
+                <div class="accordion-panel active" id="brandsSection" style="--bg-url: url('assets/hero_slide_manufacturing.png'); --bg-color: #FFEEDF;">
+                    <div class="panel-background"></div>
+                    <div class="panel-header">
+                        <span class="panel-num">01</span>
+                        <h3 class="panel-title">For Brands</h3>
+                    </div>
+                    <div class="panel-content">
+                        <p class="panel-description">Rapidly expand your product lines with custom-formulated solutions. We provide tailored chemical properties, custom branding design, and CEE regional positioning to establish your product as a top market contender.</p>
+                        <a href="#productCompass" class="panel-cta">
+                            Line Extensions
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Retailers -->
+                <div class="accordion-panel" id="retailersSection" style="--bg-url: url('assets/hero_slide_logistics.png'); --bg-color: #E6F6FD;">
+                    <div class="panel-background"></div>
+                    <div class="panel-header">
+                        <span class="panel-num">02</span>
+                        <h3 class="panel-title">For Retailers</h3>
+                    </div>
+                    <div class="panel-content">
+                        <p class="panel-description">Unlock high-margin growth. We engineer private labels that match national brand qualities while maintaining competitive shelf pricing, backed by complete compliance guarantees and bulletproof stock forecasting.</p>
+                        <a href="#assuranceSection" class="panel-cta">
+                            Margin Generation
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Producers -->
+                <div class="accordion-panel" id="producersSection" style="--bg-url: url('assets/hero_slide_compliance.png'); --bg-color: #FFF2D3;">
+                    <div class="panel-background"></div>
+                    <div class="panel-header">
+                        <span class="panel-num">03</span>
+                        <h3 class="panel-title">For Producers</h3>
+                    </div>
+                    <div class="panel-content">
+                        <p class="panel-description">Scale manufacturing operations with our contract manufacturing hub. From bulk supply chains to specialized toll blending, we orchestrate seamless CEE logistics networks and CEE strategy brokerage.</p>
+                        <a href="#industriesSection" class="panel-cta">
+                            Contract Manufacturing
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Compass (Mapura Style Dynamic Explorer) -->
+        <section id="productCompass" class="product-compass">
+            <div class="compass-container">
+                <div class="section-title-block">
+                    <span class="section-tag">Selection 1: Product Categories</span>
+                    <h2 class="section-heading">PLAXEMA Product Compass</h2>
+                    <p class="section-subtext">Filter and explore our comprehensive private label formulation matrix. Real-time specifications for your CEE target market.</p>
+                </div>
+
+                <!-- Level 1: Category Selection Buttons -->
+                <div class="category-selectors" id="categorySelectors" role="tablist" aria-label="Product Categories">
+                    <button class="cat-btn active" data-category="ADHESIVES" role="tab" aria-selected="true" id="tab-adhesives">
+                        <span class="cat-icon">🧪</span> Adhesives
+                    </button>
+                    <button class="cat-btn" data-category="SEALANTS" role="tab" aria-selected="false" id="tab-sealants">
+                        <span class="cat-icon">🛡️</span> Sealants
+                    </button>
+                    <button class="cat-btn" data-category="PU FOAMS" role="tab" aria-selected="false" id="tab-pu-foams">
+                        <span class="cat-icon">🧼</span> PU Foams
+                    </button>
+                    <button class="cat-btn" data-category="AEROSOLS" role="tab" aria-selected="false" id="tab-aerosols">
+                        <span class="cat-icon">💨</span> Aerosols
+                    </button>
+                    <button class="cat-btn" data-category="AUTOMOTIVE" role="tab" aria-selected="false" id="tab-automotive">
+                        <span class="cat-icon">🚗</span> Automotive
+                    </button>
+                    <button class="cat-btn" data-category="CLEANING" role="tab" aria-selected="false" id="tab-cleaning">
+                        <span class="cat-icon">✨</span> Cleaning
+                    </button>
+                    <button class="cat-btn" data-category="APPLICATION SYSTEMS" role="tab" aria-selected="false" id="tab-app-systems">
+                        <span class="cat-icon">🔫</span> Applicators
+                    </button>
+                </div>
+
+                <!-- Level 2: Dynamic Sub-Category Tab Bar -->
+                <div class="sub-category-wrapper">
+                    <span class="section-tag-sm">Selection 2: Sub-category type</span>
+                    <div class="sub-category-selectors" id="subCategorySelectors" role="tablist" aria-label="Product Sub-categories">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Level 3: Dynamic Item Grid (Produkcja Kontraktowa Style) -->
+                <div class="products-display-zone">
+                    <span class="section-tag-sm">Selection 3: Product formulations & specifications</span>
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section (How We Work) -->
+        <section id="methodologySection" class="methodology-section">
+            <div class="methodology-container">
+                <div class="section-title-block centered">
+                    <span class="section-tag">How We Work</span>
+                    <h2 class="section-heading text-white">Advanced Toll Blending & Formulation</h2>
+                    <p class="section-subtext text-gray">From molecular research to full-scale automated cartridge filling and logistics.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">R&D & Formulation</h3>
+                        <p class="step-text">Custom chemistry adjustments to match application requirements, temperature tolerances, and binding speeds. 100% proprietary formulas.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">Private Brand Design</h3>
+                        <p class="step-text">Our design studio handles graphic branding, regulatory compliance labeling, and packaging artwork adaptation in multiple local languages.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">Precision Manufacturing</h3>
+                        <p class="step-text">State-of-the-art toll blending reactors and packaging equipment. Automated lines fill cartridges, foil sausages, and aerosol cans with high efficiency.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h3 class="step-title">Regulatory & Logistics</h3>
+                        <p class="step-text">We process EU poison center notifications, author Safety Data Sheets (SDS), and handle border declarations for direct dispatch across CEE.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries We Serve Section (Blue Logistics Style) -->
+        <section id="industriesSection" class="industries-section">
+            <div class="industries-container">
+                <div class="section-title-block">
+                    <span class="section-tag">Partnerships</span>
+                    <h2 class="section-heading">Industries We Serve</h2>
+                    <p class="section-subtext">Plaxema formulations are tailored for industrial application, professional construction, and DIY consumer channels.</p>
+                </div>
+
+                <div class="industries-grid" id="industriesGrid">
+                    <!-- Dynamic rendering in JS from Excel list -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Searchable Technical Index Section -->
+        <section id="technicalIndex" class="technical-index">
+            <div class="index-container">
+                <div class="section-title-block centered">
+                    <span class="section-tag">Level 3 Data Index</span>
+                    <h2 class="section-heading">Searchable Technical Index</h2>
+                    <p class="section-subtext">Access our complete database of 300+ formulation specs. Search by keyword, chemical compound, or CEE market category.</p>
+                </div>
+                
+                <div class="search-box-wrapper">
+                    <input type="text" id="indexSearchInput" placeholder="Search formulations (e.g. Silicones, WBA, PU Foam, Degreaser)...">
+                    <span class="search-count" id="searchCount">Showing all formulations</span>
+                </div>
+
+                <div class="index-table-wrapper">
+                    <table class="index-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Sub-Category</th>
+                                <th>CEE Exclusivity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="indexTableBody">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pre-Footer Assurance Zone -->
+        <section id="assuranceSection" class="assurance-section" aria-label="Assurance Zone">
+            <div class="assurance-container">
+                <div class="assurance-card">
+                    <div class="assurance-icon">🛡️</div>
+                    <h3 class="assurance-title">Geographical Exclusivity</h3>
+                    <p class="assurance-text"><strong>Zero Market Cannibalization.</strong> We grant strict geographical protection to prevent internal competition, safeguarding your private brand's market share across Poland, the Czech Republic, Slovakia, and Hungary.</p>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon">⚖️</div>
+                    <h3 class="assurance-title">Regulatory Safety Shield</h3>
+                    <p class="assurance-text">We manage all EU notifications, Safety Data Sheets (SDS) authoring, chemical regulatory compliance, and local language packaging legal validation, handling 100% of the legislative heavy lifting.</p>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon">📦</div>
+                    <h3 class="assurance-title">Supply Chain Predictability</h3>
+                    <p class="assurance-text">Advanced rolling forecast planning insulates your private label from peak factory queues. Even during global production constraints, your supply lines remain continuous, predictable, and fully protected.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Master Footer Matrix -->
+    <footer class="footer-container" id="siteFooter">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <!-- Column 1: Profile -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">About Plaxema</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="info-modal-trigger" data-type="about">Corporate Profile</a></li>
+                        <li><a href="#methodologySection">How We Work</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="blog">Our Blog (Market Trends)</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="kb">Knowledge Base</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="qa">Q&A (Friction Remover)</a></li>
+                    </ul>
+                </div>
+                <!-- Column 2: Tech Portal -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Technical Data</h3>
+                    <ul class="footer-links">
+                        <li><a href="#technicalIndex">Searchable Product Index</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="sds">SDS & Compliance Portal</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="lead">Lead-Time Updates</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Contact Matrix -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Partnerships</h3>
+                    <ul class="footer-links">
+                        <li><a href="#brandsSection">For Brands</a></li>
+                        <li><a href="#retailersSection">For Retailers</a></li>
+                        <li><a href="#producersSection">For Producers</a></li>
+                        <li><a href="#" class="info-modal-trigger" data-type="touch">Get In Touch</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Branding and social -->
+                <div class="footer-col branding-col">
+                    <div class="footer-logo">PLAXEMA</div>
+                    <p class="footer-branding-text">Private Label Innovation Destination. Formulating chemical solutions for Central and Eastern Europe.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link-item" id="linkedInLink">
+                            <svg class="li-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <span>Follow us on LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Legal Baseline -->
+            <div class="footer-baseline">
+                <p>&copy; 2026 PLAXEMA. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#" class="info-modal-trigger" data-type="notice">Legal Notice (Impressum)</a>
+                    <a href="#" class="info-modal-trigger" data-type="privacy">Privacy Policy</a>
+                    <a href="#" class="info-modal-trigger" data-type="terms">Terms & Conditions</a>
+                    <a href="#" class="info-modal-trigger" data-type="cookie">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Request a Quote Modal (Blue Logistics Funnel) -->
+    <div class="modal-overlay" id="quoteModal" aria-hidden="true" role="dialog">
+        <div class="modal-card">
+            <button class="modal-close" id="closeQuoteModalBtn" aria-label="Close quote modal">×</button>
+            <div class="quote-funnel-header">
+                <h2>Request a Quote</h2>
+                <p>Configure your CEE chemical private label specifications in 3 steps.</p>
+                <div class="funnel-steps">
+                    <div class="step-indicator active" data-step="1">1. Company Profile</div>
+                    <div class="step-indicator" data-step="2">2. Specifications</div>
+                    <div class="step-indicator" data-step="3">3. Brand & Logistics</div>
+                </div>
+            </div>
+            
+            <form id="quoteConfiguratorForm" class="quote-form">
+                <!-- Step 1 Pane -->
+                <div class="form-step-pane active" id="paneStep1">
+                    <div class="input-group">
+                        <label for="companyName">Company Name *</label>
+                        <input type="text" id="companyName" required placeholder="e.g. CEE Construction Solutions Ltd">
+                    </div>
+                    <div class="input-group">
+                        <label for="contactEmail">Business Email *</label>
+                        <input type="email" id="contactEmail" required placeholder="name@company.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="targetMarkets">CEE Target Markets *</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="markets" value="Poland" checked> Poland</label>
+                            <label><input type="checkbox" name="markets" value="Czech Republic"> Czech Republic</label>
+                            <label><input type="checkbox" name="markets" value="Slovakia"> Slovakia</label>
+                            <label><input type="checkbox" name="markets" value="Hungary"> Hungary</label>
+                        </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="next-btn" id="toStep2Btn">Continue to Specifications</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 Pane -->
+                <div class="form-step-pane" id="paneStep2">
+                    <div class="input-group">
+                        <label for="configCategory">Product Category *</label>
+                        <select id="configCategory" required>
+                            <option value="" disabled selected>Select category...</option>
+                            <option value="ADHESIVES">Adhesives</option>
+                            <option value="SEALANTS">Sealants</option>
+                            <option value="PU FOAMS">PU Foams</option>
+                            <option value="AEROSOLS">Aerosols</option>
+                            <option value="AUTOMOTIVE">Automotive Chemical</option>
+                            <option value="CLEANING">Cleaning Formulations</option>
+                            <option value="APPLICATION SYSTEMS">Application Systems</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="configSubCategory">Sub-category Type *</label>
+                        <select id="configSubCategory" required disabled>
+                            <option value="" disabled selected>Choose category first...</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="annualVolume">Expected Annual Volume *</label>
+                        <select id="annualVolume" required>
+                            <option value="Trial Batch (1,000 - 5,000 units)">Trial Batch (1,000 - 5,000 units)</option>
+                            <option value="Medium Volume (5,000 - 20,000 units)" selected>Medium Volume (5,000 - 20,000 units)</option>
+                            <option value="High Volume (20,000 - 100,000 units)">High Volume (20,000 - 100,000 units)</option>
+                            <option value="Continuous Factory Pipeline (>100,000 units)">Continuous Factory Pipeline (>100,000 units)</option>
+                        </select>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="back-btn" id="backToStep1Btn">Back</button>
+                        <button type="button" class="next-btn" id="toStep3Btn">Continue to Logistics</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 Pane -->
+                <div class="form-step-pane" id="paneStep3">
+                    <div class="input-group">
+                        <label for="packFormat">Packaging Format *</label>
+                        <select id="packFormat" required>
+                            <option value="Standard Cartridge (310ml)">Standard Cartridge (310ml)</option>
+                            <option value="Foil Sausage Pack (600ml)">Foil Sausage Pack (600ml)</option>
+                            <option value="Standard Aerosol Can (400ml / 500ml / 750ml)">Standard Aerosol Can (400ml / 500ml / 750ml)</option>
+                            <option value="Industrial Bucket/Jerrycan">Industrial Bucket/Jerrycan</option>
+                            <option value="Special Applicator Device">Special Applicator Device</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="artworkReady">Do you have packaging artwork ready? *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="artwork" value="Ready" checked> Yes, ready for printing</label>
+                            <label><input type="radio" name="artwork" value="Needs Design Studio help"> No, we require design assistance</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="comments">Specific technical requests / certifications</label>
+                        <textarea id="comments" placeholder="e.g. needs high temperature resistance up to 200°C or fire rating EN 1366-4..."></textarea>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="back-btn" id="backToStep2Btn">Back</button>
+                        <button type="submit" class="submit-btn" id="submitQuoteFormBtn">Submit Quote Request ⚡</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal (Produkcja Kontraktowa Style) -->
+    <div class="modal-overlay" id="productModal" aria-hidden="true" role="dialog">
+        <div class="modal-card detail-card">
+            <button class="modal-close" id="closeProductModalBtn" aria-label="Close details">×</button>
+            <div class="product-detail-layout" id="productDetailLayout">
+                <!-- Populated dynamically via JS when a product is clicked -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Communication Matrix Overlay -->
+    <div class="modal-overlay" id="contactMatrixModal" aria-hidden="true" role="dialog">
+        <div class="modal-card matrix-card">
+            <button class="modal-close" id="closeContactMatrixBtn" aria-label="Close contact matrix">×</button>
+            <h2>Communication Matrix</h2>
+            <p>Connect with our private label experts instantly. Select your preferred channel.</p>
+            <div class="matrix-grid">
+                <a href="tel:+48123456789" class="matrix-item" id="phoneMatrixLink">
+                    <div class="matrix-icon">📞</div>
+                    <h3>Schedule a Phone Call</h3>
+                    <p>Connect directly with CEE accounts department. Fast reply.</p>
+                </a>
+                <a href="https://calendly.com" target="_blank" rel="noopener" class="matrix-item" id="calendarMatrixLink">
+                    <div class="matrix-icon">📅</div>
+                    <h3>Video Meeting (Teams/Meet)</h3>
+                    <p>Reserve a time slot on our technical consultant calendar.</p>
+                </a>
+                <a href="https://wa.me/48123456789" target="_blank" rel="noopener" class="matrix-item" id="whatsappMatrixLink">
+                    <div class="matrix-icon">💬</div>
+                    <h3>WhatsApp Business Chat</h3>
+                    <p>Instant messaging for raw materials specs and catalog questions.</p>
+                </a>
+                <a href="mailto:office@plaxema.com" class="matrix-item" id="emailMatrixLink">
+                    <div class="matrix-icon">✉️</div>
+                    <h3>Direct RFQ Email</h3>
+                    <p>Send your detailed specification list or SDS requirements.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- General Information Modal (For Blog, Q&A, Knowledge Base, SDS Portal, etc.) -->
+    <div class="modal-overlay" id="infoModal" aria-hidden="true" role="dialog">
+        <div class="modal-card info-card">
+            <button class="modal-close" id="closeInfoModalBtn" aria-label="Close modal">×</button>
+            <div class="info-modal-content" id="infoModalContent">
+                <!-- Content loaded dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
