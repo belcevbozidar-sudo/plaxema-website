@@ -4986,6 +4986,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let megaActiveCat = "ADHESIVES";
     let megaActiveSub = "";
 
+    function triggerMegaMenuClose() {
+        megaMenu.classList.add("hide-temporary");
+        setTimeout(() => {
+            megaMenu.classList.remove("hide-temporary");
+        }, 500);
+    }
+
+    // Main header "Our Offer" dropdown button routing click trigger
+    const ourOfferDropdownBtn = document.getElementById("ourOfferDropdownBtn");
+    if (ourOfferDropdownBtn) {
+        ourOfferDropdownBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.hash = "#/our-offer";
+            triggerMegaMenuClose();
+        });
+    }
+
     function populateMegaMenu() {
         // Step 1: Categories
         megaCatList.innerHTML = "";
@@ -5000,6 +5017,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 li.classList.add("active");
                 megaActiveCat = cat;
                 populateMegaSub();
+            });
+
+            btn.addEventListener("click", () => {
+                activeCategory = cat;
+                activeSubCategory = "";
+                
+                // Sync compass selectors
+                categorySelectors.querySelectorAll(".cat-btn").forEach(b => {
+                    if (b.dataset.category === activeCategory) {
+                        b.classList.add("active");
+                        b.setAttribute("aria-selected", "true");
+                    } else {
+                        b.classList.remove("active");
+                        b.setAttribute("aria-selected", "false");
+                    }
+                });
+                
+                renderProductCompass();
+                
+                // Navigate and Close
+                window.location.hash = "#/our-offer";
+                triggerMegaMenuClose();
             });
             
             li.appendChild(btn);
@@ -5027,6 +5066,37 @@ document.addEventListener("DOMContentLoaded", () => {
                     megaActiveSub = sub;
                     populateMegaItems();
                 });
+
+                btn.addEventListener("click", () => {
+                    activeCategory = megaActiveCat;
+                    activeSubCategory = sub;
+                    
+                    // Sync compass selectors
+                    categorySelectors.querySelectorAll(".cat-btn").forEach(b => {
+                        if (b.dataset.category === activeCategory) {
+                            b.classList.add("active");
+                            b.setAttribute("aria-selected", "true");
+                        } else {
+                            b.classList.remove("active");
+                            b.setAttribute("aria-selected", "false");
+                        }
+                    });
+                    
+                    renderProductCompass();
+                    
+                    // Sync subcategory selection button in compass
+                    setTimeout(() => {
+                        subCategorySelectors.querySelectorAll(".sub-btn").forEach(b => {
+                            if (b.textContent === activeSubCategory) {
+                                b.click();
+                            }
+                        });
+                    }, 50);
+                    
+                    // Navigate and Close
+                    window.location.hash = "#/our-offer";
+                    triggerMegaMenuClose();
+                });
                 
                 li.appendChild(btn);
                 megaSubCatList.appendChild(li);
@@ -5042,44 +5112,14 @@ document.addEventListener("DOMContentLoaded", () => {
         items.forEach(item => {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = "#/our-offer";
+            a.href = `#/product/${getProductSlug(item.name)}`;
             a.textContent = item.name;
             
-            a.addEventListener("click", () => {
-                // Force Compass Category & Subcategory Update
-                activeCategory = megaActiveCat;
-                activeSubCategory = megaActiveSub;
-                
-                // Sync Compass selectors
-                categorySelectors.querySelectorAll(".cat-btn").forEach(b => {
-                    if (b.dataset.category === activeCategory) {
-                        b.classList.add("active");
-                    } else {
-                        b.classList.remove("active");
-                    }
-                });
-                
-                renderProductCompass();
-                
-                // Select specific subcategory button inside compass
-                setTimeout(() => {
-                    subCategorySelectors.querySelectorAll(".sub-btn").forEach(b => {
-                        if (b.textContent === activeSubCategory) {
-                            b.click();
-                        }
-                    });
-                }, 50);
-                
-                // Update URL hash to transition to our offer page
-                window.location.hash = "#/our-offer";
-
-                // Close Mega Menu
-                megaMenu.style.opacity = "0";
-                megaMenu.style.visibility = "hidden";
-                setTimeout(() => {
-                    megaMenu.style.opacity = "";
-                    megaMenu.style.visibility = "";
-                }, 300);
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                // Navigate to product detail page directly
+                window.location.hash = `#/product/${getProductSlug(item.name)}`;
+                triggerMegaMenuClose();
             });
             
             li.appendChild(a);

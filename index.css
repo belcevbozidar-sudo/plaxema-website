@@ -1628,6 +1628,13 @@ button {
     transform: translateY(0);
 }
 
+.mega-menu.hide-temporary {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    transition: none !important;
+}
+
 .mega-menu-inner {
     max-width: 1400px;
     margin: 0 auto;
