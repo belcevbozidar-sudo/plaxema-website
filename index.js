@@ -4790,7 +4790,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSlide = 0;
     let isSliderPlaying = true;
     let sliderInterval;
-    const slideDelay = 5000;
+    const slideDelay = 7500;
     
     let activeCategory = "";
     let activeSubCategory = "";
@@ -5229,6 +5229,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Quote Modal Trigger Listeners
+    document.querySelectorAll(".open-quote-trigger").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal(quoteModal);
+        });
+    });
     openQuoteBtn.addEventListener("click", () => openModal(quoteModal));
     closeQuoteModalBtn.addEventListener("click", () => closeModal(quoteModal));
     
@@ -5241,6 +5247,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Contact Matrix Trigger Listeners
+    document.querySelectorAll(".open-connect-trigger").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal(contactMatrixModal);
+        });
+    });
     contactMatrixBtn.addEventListener("click", () => openModal(contactMatrixModal));
     closeContactMatrixBtn.addEventListener("click", () => closeModal(contactMatrixModal));
 
