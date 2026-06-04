@@ -16388,13 +16388,17 @@ document.addEventListener("DOMContentLoaded", () => {
             
             let specsHtml = "";
             if (item.fields && item.fields.length > 0) {
-                specsHtml = `<div class="card-specs-list">` + 
-                    item.fields.map(f => `
-                        <div class="card-spec-row">
-                            <span class="card-spec-label">${f.label}:</span>
-                            <span class="card-spec-value" title="${f.value}">${f.value}</span>
-                        </div>
-                    `).join("") + 
+                specsHtml = `<div class="card-specs-list" style="font-family: monospace; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-muted);">` + 
+                    item.fields.map((f, idx) => {
+                        const branch = (idx === item.fields.length - 1) ? "└──" : "├──";
+                        return `
+                            <div class="card-spec-row" style="display: flex; gap: 4px; border-bottom: none; padding-bottom: 2px;">
+                                <span class="card-spec-branch" style="color: var(--color-orange-accent); font-weight: bold; white-space: nowrap; margin-right: 2px;">${branch}</span>
+                                <span class="card-spec-label" style="color: var(--color-text-muted); font-weight: 500; white-space: nowrap; margin-right: 0;">${f.label}:</span>
+                                <span class="card-spec-value" title="${f.value}" style="color: var(--color-text-light); font-weight: 600; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; margin-left: auto;">${f.value}</span>
+                            </div>
+                        `;
+                    }).join("") + 
                 `</div>`;
             }
             
@@ -16466,11 +16470,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let megaActiveCat = "ADHESIVES";
     let megaActiveSub = "";
 
+    const navDropdown = document.querySelector(".nav-item-dropdown");
+    let preventMegaOpen = false;
+
+    navDropdown.addEventListener("mouseenter", () => {
+        if (!preventMegaOpen) {
+            navDropdown.classList.add("active");
+        }
+    });
+
+    navDropdown.addEventListener("mouseleave", () => {
+        navDropdown.classList.remove("active");
+        preventMegaOpen = false;
+    });
+
     function triggerMegaMenuClose() {
-        megaMenu.classList.add("hide-temporary");
-        setTimeout(() => {
-            megaMenu.classList.remove("hide-temporary");
-        }, 500);
+        navDropdown.classList.remove("active");
+        preventMegaOpen = true;
     }
 
     // Main header "Our Offer" dropdown button routing click trigger
