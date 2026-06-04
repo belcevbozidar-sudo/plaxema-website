@@ -4,22 +4,22 @@
 
 /* Design Tokens & Variables */
 :root {
-    --color-bg-dark: #F8FAFC;
-    --color-bg-panel: #FFFFFF;
-    --color-bg-glass: rgba(255, 255, 255, 0.82);
-    --color-border-glass: rgba(15, 23, 42, 0.08);
+    --color-bg-dark: #07162c;
+    --color-bg-panel: #0b2240;
+    --color-bg-glass: rgba(11, 34, 64, 0.7);
+    --color-border-glass: rgba(255, 255, 255, 0.08);
     
     /* Branding Core Colors */
-    --color-navy-dark: #003366;
-    --color-blue-accent: #1A56DB;
-    --color-green-accent: #10B981;
-    --color-orange-accent: #D97706;
+    --color-navy-dark: #002F65;
+    --color-blue-accent: #00A7E7;
+    --color-green-accent: #00C48D;
+    --color-orange-accent: #FF9527;
     
-    /* Neutral Palette (Swapped for light-theme contrast) */
-    --color-text-white: #0F172A;
-    --color-text-light: #1E293B;
-    --color-text-muted: #475569;
-    --color-text-gray: #64748B;
+    /* Neutral Palette */
+    --color-text-white: #FFFFFF;
+    --color-text-light: #F5F6F7;
+    --color-text-muted: #ADB2B7;
+    --color-text-gray: #848D94;
     
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
@@ -37,8 +37,8 @@
     --radius-full: 9999px;
     
     /* Shadows */
-    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.05);
-    --shadow-glow: 0 0 20px rgba(26, 86, 219, 0.15);
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px rgba(0, 167, 231, 0.25);
 }
 
 /* Reset & Base Styles */
@@ -115,23 +115,11 @@ button {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(7, 22, 44, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border-glass);
     transition: var(--transition-normal);
-}
-
-/* Force white text on primary/gradient buttons in Light Theme */
-.quote-btn,
-.btn-add-quote,
-.wizard-submit-btn,
-.mega-list li.active a,
-.mega-list li.active button,
-.sub-btn.active,
-.cat-btn.active,
-.product-page-rfq-btn {
-    color: #FFFFFF !important;
 }
 
 .header-container {
@@ -361,7 +349,7 @@ button {
 .slide-cta-btn {
     display: inline-block;
     background: var(--color-blue-accent);
-    color: #FFFFFF !important;
+    color: var(--color-text-white);
     padding: 12px 28px;
     border-radius: var(--radius-full);
     font-weight: 700;
@@ -370,7 +358,7 @@ button {
 }
 
 .slide-cta-btn:hover {
-    background: var(--color-navy-dark);
+    background: #008cc5;
     transform: translateY(-2px);
 }
 
@@ -383,12 +371,11 @@ button {
     display: flex;
     align-items: center;
     gap: 20px;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(7, 22, 44, 0.6);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     padding: 8px 16px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    border: 1px solid var(--color-border-glass);
 }
 
 .slider-pagination {
@@ -400,7 +387,7 @@ button {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(15, 23, 42, 0.25);
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: var(--transition-fast);
 }
@@ -475,7 +462,7 @@ button {
         flex: 2.5;
     }
     .accordion-panel:hover .panel-background {
-        filter: brightness(1) grayscale(0) opacity(0.35);
+        filter: brightness(0.3) grayscale(0);
         transform: scale(1.05);
     }
     .accordion-panel:hover .panel-content {
@@ -486,7 +473,7 @@ button {
 
 /* Active state for accordion panels (handles mobile clicks and desktop active states) */
 .accordion-panel.active .panel-background {
-    filter: brightness(1) grayscale(0) opacity(0.35);
+    filter: brightness(0.3) grayscale(0);
     transform: scale(1.05);
 }
 
@@ -504,7 +491,7 @@ button {
     background-image: var(--bg-url);
     background-size: cover;
     background-position: center;
-    filter: brightness(1) grayscale(0.2) opacity(0.12);
+    filter: brightness(0.2) grayscale(0.5);
     transition: filter var(--transition-normal), transform var(--transition-slow);
     z-index: 1;
 }
@@ -571,7 +558,7 @@ button {
    PRODUCT COMPASS (MAPURA DYNAMIC EXPLORER)
    ========================================================================== */
 .product-compass {
-    background: var(--color-bg-panel);
+    background: #081e39;
     padding: 80px 24px;
     border-top: 1px solid var(--color-border-glass);
     border-bottom: 1px solid var(--color-border-glass);
@@ -683,14 +670,14 @@ button {
 }
 
 .sub-btn:hover {
-    background: rgba(15, 23, 42, 0.08);
+    background: #0e2d53;
     color: var(--color-text-white);
 }
 
 .sub-btn.active {
     background: var(--color-blue-accent);
     color: var(--color-text-white);
-    box-shadow: 0 0 10px rgba(26, 86, 219, 0.3);
+    box-shadow: 0 0 10px rgba(0, 167, 231, 0.4);
 }
 
 /* Selection 3: Produkcja Kontraktowa Block Grid */
@@ -781,7 +768,7 @@ button {
     align-items: baseline;
     font-size: 0.8rem;
     line-height: 1.3;
-    border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
     padding-bottom: 4px;
 }
 
@@ -832,9 +819,9 @@ button {
 }
 
 .btn-add-quote:hover {
-    background: var(--color-navy-dark);
+    background: #008cc5;
     transform: translateY(-1px);
-    box-shadow: 0 0 8px rgba(26, 86, 219, 0.4);
+    box-shadow: 0 0 8px rgba(0, 167, 231, 0.4);
 }
 
 .btn-req-tds {
@@ -896,14 +883,14 @@ button {
     right: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, transparent, rgba(26, 86, 219, 0.08));
+    background: linear-gradient(135deg, transparent, rgba(0, 167, 231, 0.1));
     border-radius: var(--radius-md) 0 var(--radius-md) 0;
 }
 
 .step-number {
     font-size: 3rem;
     font-weight: 700;
-    color: rgba(26, 86, 219, 0.15);
+    color: rgba(0, 167, 231, 0.2);
     position: absolute;
     top: 20px;
     right: 30px;
@@ -931,7 +918,7 @@ button {
    ========================================================================== */
 .industries-section {
     padding: 80px 24px;
-    background: var(--color-bg-panel);
+    background: #081e39;
     border-top: 1px solid var(--color-border-glass);
 }
 
@@ -966,8 +953,8 @@ button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(26, 86, 219, 0.08);
-    border: 1px solid rgba(26, 86, 219, 0.15);
+    background: rgba(0, 167, 231, 0.1);
+    border: 1px solid rgba(0, 167, 231, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1038,7 +1025,7 @@ button {
    STREAMLINED MASTER FOOTER MATRIX
    ========================================================================== */
 .footer-container {
-    background: #F1F5F9;
+    background: #040d1a;
     border-top: 1px solid var(--color-border-glass);
     padding: 80px 24px 30px;
 }
@@ -1166,7 +1153,7 @@ button {
     width: 100%;
     height: 100%;
     z-index: 2000;
-    background: rgba(15, 23, 42, 0.45);
+    background: rgba(4, 13, 26, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -1209,7 +1196,7 @@ button {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(15, 23, 42, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--color-text-muted);
     font-size: 1.5rem;
     display: flex;
@@ -1219,7 +1206,7 @@ button {
 }
 
 .modal-close:hover {
-    background: rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--color-text-white);
     border-color: var(--color-border-glass);
 }
@@ -1318,7 +1305,7 @@ button {
 .input-group select:focus,
 .input-group textarea:focus {
     border-color: var(--color-blue-accent);
-    box-shadow: 0 0 8px rgba(26, 86, 219, 0.15);
+    box-shadow: 0 0 8px rgba(0, 167, 231, 0.2);
 }
 
 .input-group textarea {
@@ -1363,7 +1350,7 @@ button {
 
 .next-btn, .submit-btn {
     background: var(--color-blue-accent);
-    color: #FFFFFF !important;
+    color: var(--color-text-white);
     padding: 12px 24px;
     border-radius: var(--radius-sm);
     font-weight: 700;
@@ -1371,7 +1358,7 @@ button {
 }
 
 .next-btn:hover {
-    background: var(--color-navy-dark);
+    background: #008cc5;
 }
 
 .submit-btn {
@@ -1379,7 +1366,7 @@ button {
 }
 
 .submit-btn:hover {
-    background: #059669;
+    background: #00ab7b;
 }
 
 .back-btn {
@@ -1509,7 +1496,7 @@ button {
 
 .detail-quote-btn {
     background: var(--color-blue-accent);
-    color: #FFFFFF !important;
+    color: var(--color-text-white);
     padding: 12px 24px;
     border-radius: var(--radius-sm);
     font-weight: 700;
@@ -1517,7 +1504,7 @@ button {
 }
 
 .detail-quote-btn:hover {
-    background: var(--color-navy-dark);
+    background: #008cc5;
 }
 
 /* Communication Matrix Card */
@@ -1554,7 +1541,7 @@ button {
 
 .matrix-item:hover {
     border-color: var(--color-blue-accent);
-    background: rgba(26, 86, 219, 0.05);
+    background: rgba(0, 167, 231, 0.05);
 }
 
 .matrix-icon {
@@ -1969,7 +1956,7 @@ button {
 
 .show-more-btn:hover {
     border-color: var(--color-blue-accent);
-    background: rgba(26, 86, 219, 0.05);
+    background: rgba(0, 167, 231, 0.05);
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
 }
@@ -2021,7 +2008,7 @@ button {
 
 .back-to-catalog-btn:hover {
     border-color: var(--color-blue-accent);
-    background: rgba(26, 86, 219, 0.05);
+    background: rgba(0, 167, 231, 0.05);
     box-shadow: var(--shadow-glow);
 }
 
@@ -2306,7 +2293,7 @@ button {
     }
     
     .index-action-btn:hover {
-        background: rgba(26, 86, 219, 0.12);
+        background: rgba(0, 167, 231, 0.15);
         border-color: var(--color-blue-accent);
     }
 }
