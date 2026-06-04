@@ -16388,12 +16388,10 @@ document.addEventListener("DOMContentLoaded", () => {
             
             let specsHtml = "";
             if (item.fields && item.fields.length > 0) {
-                specsHtml = `<div class="card-specs-list" style="font-family: monospace; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-muted);">` + 
+                specsHtml = `<div class="card-specs-list" style="font-family: inherit; font-size: 0.85rem; line-height: 1.5; color: var(--color-text-muted);">` + 
                     item.fields.map((f, idx) => {
-                        const branch = (idx === item.fields.length - 1) ? "└──" : "├──";
                         return `
                             <div class="card-spec-row" style="display: flex; gap: 4px; border-bottom: none; padding-bottom: 2px;">
-                                <span class="card-spec-branch" style="color: var(--color-orange-accent); font-weight: bold; white-space: nowrap; margin-right: 2px;">${branch}</span>
                                 <span class="card-spec-label" style="color: var(--color-text-muted); font-weight: 500; white-space: nowrap; margin-right: 0;">${f.label}:</span>
                                 <span class="card-spec-value" title="${f.value}" style="color: var(--color-text-light); font-weight: 600; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; margin-left: auto;">${f.value}</span>
                             </div>
